@@ -6,3 +6,7 @@ build/
 runtime/
 logs/
 /bin/
+.classpath
+.project
+.idea/
+ivy/
