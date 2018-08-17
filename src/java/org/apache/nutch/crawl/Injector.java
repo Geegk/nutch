@@ -480,6 +480,9 @@ public class Injector extends NutchTool implements Tool {
     }
   }
 
+  /**
+   * 控制台打印错误信息
+   */
   public void usage() {
     System.err.println(
         "Usage: Injector [-D...] <crawldb> <url_dir> [-overwrite|-update] [-noFilter] [-noNormalize] [-filterNormalizeAll]\n");
@@ -530,6 +533,7 @@ public class Injector extends NutchTool implements Tool {
   }
 
   public int run(String[] args) throws Exception {
+      //无参数输入，终止运行
     if (args.length < 2) {
       usage();
       return -1;
@@ -540,7 +544,7 @@ public class Injector extends NutchTool implements Tool {
     boolean normalize = true;
     boolean filter = true;
     boolean filterNormalizeAll = false;
-
+    //参数转化为变量
     for (int i = 2; i < args.length; i++) {
       if (args[i].equals("-overwrite")) {
         overwrite = true;
@@ -558,7 +562,6 @@ public class Injector extends NutchTool implements Tool {
         return -1;
       }
     }
-
     try {
       inject(new Path(args[0]), new Path(args[1]), overwrite, update, normalize,
           filter, filterNormalizeAll);
