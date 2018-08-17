@@ -10,3 +10,5 @@ logs/
 .project
 .idea/
 ivy/
+nutch.iml
+*.log
